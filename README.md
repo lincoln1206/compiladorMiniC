@@ -1,17 +1,17 @@
-#Construção de Compiladores P6 2018.2
-###Guia da Linguagem MiniC 
+# Construção de Compiladores P6 2018.2
+### Guia da Linguagem MiniC 
 
-###Grupo:
+### Grupo:
 - Lincoln Max
 - Vinicius Ricardo
 - Giovanni Alencar
  
-###1. Introdução 
+### 1. Introdução 
 Este guia descreve a linguagem de programação MiniC, que será usada como linguagem fonte para o projeto de compilador da disciplina. MiniC é um subconjunto da linguagem C, ou seja, todo programa MiniC é também um programa C, mas há muitas características da linguagem C completa que não aparecem em MiniC. Por exemplo, existem poucos tipos básicos, e não é possível escrever o programa usando mais de um arquivo fonte. Não existem protótipos: cada função usada pela função main deve ser definida antes desta. 
 
 Aqui está descrita a estrutura léxica da linguagem. Ao final apresentamos um programa de exemplo simples em MiniC.  
 
-###2. Estrutura Léxica 
+### 2. Estrutura Léxica 
 
 A estrutura léxica da linguagem é simples. As classes léxicas são: 
 -	Palavras-chave 
@@ -24,7 +24,7 @@ A estrutura léxica da linguagem é simples. As classes léxicas são:
 -	Símbolos de Pontuação 
 -	Comentários 
 
-#####Palavras-chave: 
+##### Palavras-chave: 
 Estas são palavras reservadas que não podem ser usadas como identificadores. As palavras-chave do MiniC são: 
 -	char 
 -	else 
@@ -40,31 +40,32 @@ Estas são palavras reservadas que não podem ser usadas como identificadores. A
 -	while 
 -	include 
 
-#####Identificadores: 
+##### Identificadores: 
 os identificadores seguem a mesma regra da linguagem C: podem começar com uma letra ou sublinhado (’_’); os demais caracteres podem ser letras, sublinhado ou dígitos. 
 
-#####Literais Inteiros: 
+##### Literais Inteiros: 
 são literais inteiros, ou seja, cadeias de dígitos numéricos. Por exemplo, 1; 24; 4567, entre outros. 
 
-#####Literais de Ponto flutuante: 
+##### Literais de Ponto flutuante: 
 são literais reais, como por exemplo, 2.55, 45.678, 0.75, entre outros. 
 
-#####Literais caracteres: 
+##### Literais caracteres: 
 seguem a regra da linguagem C, sendo compostos por um caractere envolto em aspas simples. O caractere pode ser uma das sequências de escape ‘\r’, ’\n’ ou ’\t’. Para representar uma barra invertida como caractere, deve-se usar ‘\\’. 
 
-#####Literais String: 
+##### Literais String: 
 mesma regra da linguagem C: começam e terminam com um caractere de aspas duplas, e podem conter as sequências de escape \r, \n e \t. Para incluir uma barra invertida (\) na string, deve-se usar \\. Uma string representa um array de caracteres. Por exemplo: “\nHello World\n”. 
 
-#####Operadores: 
+##### Operadores: 
 os operadores binários em MiniC são as quatro operações aritméticas (+, -, * e /), os operadores de comparação (==, !=, <, >, <= e >=) há também o operador de atribuição (=). O único operador unário é o de negação lógica (!). 
 
-#####Símbolos de Pontuação: 
+##### Símbolos de Pontuação: 
 os símbolos de pontuação na linguagem MiniC são os tipos básicos encontrados na linguagem C, sendo eles : ; , ( ) { } . # 
 
-#####Comentários: 
+##### Comentários: 
 seguem as mesmas regras da linguagem C: comentários até o final da linha começando com // ou comentários multilinha começando com /* e terminando com */. 
 Comentários multilinha não podem ser aninhados. 
-###3. Gramática 
+
+### 3. Gramática 
 Um programa MiniC sempre deve estar contido em apenas um arquivo. É preciso ter pelo menos uma função, a função principal, chamada de main. Antes da função principal pode ser definido um número qualquer de outras funções, que poderão ser chamadas no main ou em outras funções. As estruturas de controle são apenas if para comandos condicionais e while para loops. Os tipos básicos são: inteiros (int), double (double), float (float) e caracteres (char). O único tipo composto é o array, que pode ter componentes int, float, double ou char. 
 
 A gramática usa a notação N , onde N é um não-terminal, para denotar nenhuma, uma ou várias ocorrências de N. Os terminais em negrito são palavras chave. Para as expressões aritméticas, assume-se que os operadores têm precedência e associatividade padrão. Os operadores aritméticos têm maior precedência que os de comparação, e estes têm precedência maior do que os operadores lógicos. As funções printint e printstr imprimem um inteiro e uma string, respectivamente; são fáceis de escrever em C padrão usando printf. A gramática completa para a linguagem é apresentada a seguir. 
@@ -114,7 +115,7 @@ A gramática usa a notação N , onde N é um não-terminal, para denotar nenhum
 	
 	Parametros -> Expressao (, Expressao)* 	 
  
-###4. Ações Semânticas 
+### 4. Ações Semânticas 
 O objetivo desta última parte do projeto é implementar todas as ações semânticas que serão executadas à medida que a análise sintática for sendo realizada. O objetivo das ações semânticas é criar uma representação do programa lido na memória usando classes e objetos em Java. Observe o exemplo a seguir:  
 
     /* Simbolos Não Terminais */  	non terminal ProgramaMiniC ProgramaMiniC; 
@@ -133,7 +134,7 @@ Esse procedimento deve ser repetido para todas as produções de forma que ao ex
  	System.out.println( programaMiniC ); 
    
  
-###5. Exemplos 
+### 5. Exemplos 
 A Figura a seguir apresenta um exemplo simples de programa que calcula o fatorial do número escrito na linguagem MiniC:
     
     #include <stdio.h>
@@ -168,7 +169,7 @@ A Figura a seguir apresenta um exemplo simples de programa que calcula o fatoria
 
     } 
  
-###6. Informações Importantes 
+### 6. Informações Importantes 
 - Data Entrega: 09/12/2018 (via Unipê virtual) às 23:55. 
 
 - Equipe: Grupo de no máximo 3 alunos. 
@@ -191,7 +192,7 @@ A Figura a seguir apresenta um exemplo simples de programa que calcula o fatoria
 
 - Nota: 3,0. 
  
-###7. Notas Bibliográficas 
+### 7. Notas Bibliográficas 
  A linguagem MiniC foi inicialmente baseada na linguagem MiniJava, apresentada no livro de Appel sobre compiladores em Java [1]. 
  
 Referências 
